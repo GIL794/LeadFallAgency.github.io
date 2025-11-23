@@ -1,0 +1,16 @@
+# Theme export folder (source files, not needed in production)
+theme_export__leadfallagency-com-lead-fall-agency__23NOV2025-0133pm/
+
+# MacOS
+.DS_Store
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
