@@ -44,18 +44,18 @@ diff -r locales/ theme_export__leadfallagency-com-lead-fall-agency__23NOV2025-01
 #### CSS Files (4 files)
 | File | Size | Verification | Status |
 |------|------|--------------|--------|
-| theme.css | 227,362 bytes | `diff` | ✅ IDENTICAL |
-| theme.css.liquid | 241,586 bytes | `diff` | ✅ IDENTICAL |
-| pagefly-main.css | 3,583 bytes | `diff` | ✅ IDENTICAL |
-| currency-flags.css | 119,810 bytes | `diff` | ✅ IDENTICAL |
+| theme.css | 226,824 bytes | `diff` | ✅ IDENTICAL |
+| theme.css.liquid | 240,847 bytes | `diff` | ✅ IDENTICAL |
+| pagefly-main.css | 3,538 bytes | `diff` | ✅ IDENTICAL |
+| currency-flags.css | 119,457 bytes | `diff` | ✅ IDENTICAL |
 
 #### JavaScript Files (4 files)
 | File | Size | Verification | Status |
 |------|------|--------------|--------|
-| theme.js | 228,514 bytes | `diff` | ✅ IDENTICAL |
-| theme.min.js | 115,795 bytes | `diff` | ✅ IDENTICAL |
-| vendor-scripts-v13.js | 144,390 bytes | `diff` | ✅ IDENTICAL |
-| tiny-img-link-preloader.js | 2,152 bytes | `diff` | ✅ IDENTICAL |
+| theme.js | 228,196 bytes | `diff` | ✅ IDENTICAL |
+| theme.min.js | 114,777 bytes | `diff` | ✅ IDENTICAL |
+| vendor-scripts-v13.js | 143,370 bytes | `diff` | ✅ IDENTICAL |
+| tiny-img-link-preloader.js | 2,070 bytes | `diff` | ✅ IDENTICAL |
 
 #### SVG Icon Files (10 files - 5 .svg + 5 .svg.liquid)
 | File | Verification | Status |
@@ -82,7 +82,7 @@ diff -r locales/ theme_export__leadfallagency-com-lead-fall-agency__23NOV2025-01
 #### Background Image (1 file)
 | File | Size | Verification | Status |
 |------|------|--------------|--------|
-| password-page-background.jpg | 180,224 bytes | `diff` | ✅ IDENTICAL |
+| password-page-background.jpg | 179,565 bytes | `diff` | ✅ IDENTICAL |
 
 ---
 
@@ -100,16 +100,16 @@ These files exist in the repository root but are **NOT** part of the Shopify the
 - blog.html (8,139 bytes) - Blog page
 
 #### Custom Assets for GitHub Pages (10 files)
-- **Custom CSS:** main.css (17,000+ bytes)
+- **Custom CSS:** main.css (19,665 bytes)
 - **Logo Images:** 
   - logo.svg, logo.png
   - logo-footer.svg, logo-footer.png
 - **Custom Content Images:**
-  - fragmented-operations.gif (4,900 bytes)
-  - inconsistent-growth.gif (4,200 bytes)
-  - overwhelmed-support.gif (5,100 bytes)
-  - innovation.png (21,000+ bytes)
-  - tech-service.png (27,000+ bytes)
+  - fragmented-operations.gif (4,943 bytes)
+  - inconsistent-growth.gif (4,270 bytes)
+  - overwhelmed-support.gif (5,128 bytes)
+  - innovation.png (21,219 bytes)
+  - tech-service.png (26,754 bytes)
 
 #### Documentation (4 files)
 - README.md (2,258 bytes)
@@ -143,33 +143,37 @@ diff -r locales/ theme_export__*/locales/
 ```
 
 #### Individual File Comparisons
+
+**Note:** Repository has organized asset structure (css/, js/, images/), while theme export has flat structure. Commands below reflect actual paths used.
+
 ```bash
-# CSS Files
+# CSS Files (organized in assets/css/ vs flat assets/)
 diff assets/css/theme.css theme_export__*/assets/theme.css
 diff assets/css/theme.css.liquid theme_export__*/assets/theme.css.liquid
 diff assets/css/pagefly-main.css theme_export__*/assets/pagefly-main.css
 diff assets/css/currency-flags.css theme_export__*/assets/currency-flags.css
 
-# JavaScript Files
+# JavaScript Files (organized in assets/js/ vs flat assets/)
 diff assets/js/theme.js theme_export__*/assets/theme.js
 diff assets/js/theme.min.js theme_export__*/assets/theme.min.js
 diff assets/js/vendor-scripts-v13.js theme_export__*/assets/vendor-scripts-v13.js
 diff assets/js/tiny-img-link-preloader.js theme_export__*/assets/tiny-img-link-preloader.js
 
-# SVG Files
+# SVG Liquid Files (in root assets/ for both, not in subdirectories)
 diff assets/ico-select.svg.liquid theme_export__*/assets/ico-select.svg.liquid
 diff assets/ico-select-drawer.svg.liquid theme_export__*/assets/ico-select-drawer.svg.liquid
 diff assets/ico-select-footer.svg.liquid theme_export__*/assets/ico-select-footer.svg.liquid
 diff assets/ico-select-menu.svg.liquid theme_export__*/assets/ico-select-menu.svg.liquid
 diff assets/ico-select-white.svg.liquid theme_export__*/assets/ico-select-white.svg.liquid
 
+# SVG Files (organized in assets/images/ vs flat assets/)
 diff assets/images/ico-select.svg theme_export__*/assets/ico-select.svg
 diff assets/images/ico-select-drawer.svg theme_export__*/assets/ico-select-drawer.svg
 diff assets/images/ico-select-footer.svg theme_export__*/assets/ico-select-footer.svg
 diff assets/images/ico-select-menu.svg theme_export__*/assets/ico-select-menu.svg
 diff assets/images/ico-select-white.svg theme_export__*/assets/ico-select-white.svg
 
-# Image Files
+# Image Files (organized in assets/images/ vs flat assets/)
 diff assets/images/button-arrow.png theme_export__*/assets/button-arrow.png
 diff assets/images/button-arrow-2x.png theme_export__*/assets/button-arrow-2x.png
 diff assets/images/button-arrow-black.png theme_export__*/assets/button-arrow-black.png
