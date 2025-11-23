@@ -774,6 +774,17 @@ body {
     margin: 0 auto;
 }
 
+.faq-category {
+    margin: 60px 0 30px 0;
+}
+
+.faq-category .category-title {
+    font-size: 28px;
+    color: var(--color-secondary);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
 .faq-item {
     margin-bottom: 40px;
     padding: 30px;
@@ -916,6 +927,24 @@ body {
     font-size: 22px;
     margin-bottom: 10px;
     color: var(--color-secondary);
+}
+
+/* Career CTA Final */
+.career-cta-final {
+    padding: 80px 0;
+    background-color: var(--color-light-bg);
+    text-align: center;
+}
+
+.cta-content-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-subtitle {
+    font-size: 20px;
+    margin: 20px 0 30px;
+    color: var(--color-text);
 }
 
 /* Contact Page */
