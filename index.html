@@ -211,6 +211,13 @@
         </div>
     </footer>
 
-    <script src="assets/js/theme.min.js"></script>
+    <!-- Pre-initialize theme object (must load first, no defer) -->
+    <script src="assets/js/pre-init.js"></script>
+    <!-- Load vendor scripts -->
+    <script src="assets/js/vendor-scripts-v13.js" defer></script>
+    <!-- Load theme core -->
+    <script src="assets/js/theme.min.js" defer></script>
+    <!-- Load initialization script -->
+    <script src="assets/js/init.js" defer></script>
 </body>
 </html>
