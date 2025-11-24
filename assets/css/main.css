@@ -1585,7 +1585,8 @@ img[data-src] {
 
 @media screen and (max-width: 768px) {
     .hero--mobile--300px {
-        height: 300px !important;
+        height: 300px;
+        min-height: 300px;
     }
     
     .hero--mobile--auto {
@@ -1993,26 +1994,27 @@ img[data-src] {
 }
 
 /* Medium down (mobile) utilities */
+/* Display utilities - using specificity instead of !important */
 @media (max-width: 768px) {
-    .medium-down--show {
-        display: block !important;
+    .medium-down--show.medium-down--show {
+        display: block;
     }
     
-    .medium-down--hide {
-        display: none !important;
+    .medium-down--hide.medium-down--hide {
+        display: none;
     }
     
-    .medium-up--hide {
-        display: none !important;
+    .medium-up--hide.medium-up--hide {
+        display: none;
     }
 }
 
 @media (min-width: 769px) {
-    .medium-up--show {
-        display: block !important;
+    .medium-up--show.medium-up--show {
+        display: block;
     }
     
-    .large-up--hide {
-        display: none !important;
+    .large-up--hide.large-up--hide {
+        display: none;
     }
 }
