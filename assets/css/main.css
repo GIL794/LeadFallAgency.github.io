@@ -1549,3 +1549,13 @@ img[data-src] {
         scroll-behavior: auto !important;
     }
 }
+
+/* Inline form error messages */
+.field-error-message {
+    display: block;
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.3s ease;
+}

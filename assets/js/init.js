@@ -1,47 +1,8 @@
 /**
  * Lead Fall Agency - Theme Initialization
  * Initializes all interactive features, animations, and slideshows
+ * Note: Theme object is initialized in pre-init.js which loads first
  */
-
-// Initialize theme settings BEFORE theme.js loads
-(function() {
-  window.theme = window.theme || {};
-  window.theme.settings = window.theme.settings || {
-    dynamicVariantsEnable: true,
-    cartType: "drawer",
-    isCustomerTemplate: false,
-    moneyFormat: "${{amount}}",
-    predictiveSearch: false,
-    predictiveSearchType: "product,page,article",
-    quickView: false,
-    themeName: 'Motion',
-    themeVersion: "8.0.0"
-  };
-})();
-
-window.theme.routes = {
-  home: "/",
-  cart: "/cart.js",
-  cartPage: "/cart",
-  cartAdd: "/cart/add.js",
-  cartChange: "/cart/change.js"
-};
-
-window.theme.strings = {
-  soldOut: "Sold Out",
-  unavailable: "Unavailable",
-  inStockLabel: "In stock",
-  stockLabel: "[count] in stock",
-  willNotShipUntil: "Will not ship until [date]",
-  willBeInStockAfter: "Will be in stock after [date]",
-  waitingForStock: "Inventory on the way",
-  cartSavings: "You're saving [savings]",
-  cartEmpty: "Your cart is currently empty.",
-  cartTermsConfirmation: "You must agree with the terms and conditions",
-  searchCollections: "Collections",
-  searchPages: "Pages",
-  searchArticles: "Articles"
-};
 
 // Page transition functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -153,7 +114,12 @@ function initializeMobileNav() {
   var toggleBtn = document.createElement('button');
   toggleBtn.className = 'mobile-nav-toggle';
   toggleBtn.setAttribute('aria-label', 'Toggle navigation');
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  toggleBtn.setAttribute('aria-controls', 'main-navigation');
   toggleBtn.innerHTML = '<span></span><span></span><span></span>';
+  
+  // Add ID to nav for ARIA
+  nav.id = 'main-navigation';
   
   var headerWrapper = header.querySelector('.header-wrapper');
   if (headerWrapper && !header.querySelector('.mobile-nav-toggle')) {
@@ -162,9 +128,12 @@ function initializeMobileNav() {
   
   // Toggle navigation on click
   toggleBtn.addEventListener('click', function() {
-    nav.classList.toggle('active');
+    var isOpen = nav.classList.toggle('active');
     toggleBtn.classList.toggle('active');
     document.body.classList.toggle('nav-open');
+    
+    // Update ARIA attribute for accessibility
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
   
   // Close nav when clicking outside
@@ -173,6 +142,7 @@ function initializeMobileNav() {
       nav.classList.remove('active');
       toggleBtn.classList.remove('active');
       document.body.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
     }
   });
 }
@@ -188,11 +158,31 @@ function initializeForms() {
       // Basic validation
       var requiredFields = form.querySelectorAll('[required]');
       var isValid = true;
+      var firstInvalidField = null;
+      
+      // Remove any existing error messages
+      var existingErrors = form.querySelectorAll('.field-error-message');
+      existingErrors.forEach(function(error) {
+        error.remove();
+      });
       
       requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
           isValid = false;
           field.classList.add('error');
+          
+          // Create inline error message
+          var errorMsg = document.createElement('span');
+          errorMsg.className = 'field-error-message';
+          errorMsg.textContent = 'This field is required';
+          errorMsg.setAttribute('role', 'alert');
+          
+          // Insert error message after the field
+          field.parentNode.insertBefore(errorMsg, field.nextSibling);
+          
+          if (!firstInvalidField) {
+            firstInvalidField = field;
+          }
         } else {
           field.classList.remove('error');
         }
@@ -200,15 +190,25 @@ function initializeForms() {
       
       if (!isValid) {
         e.preventDefault();
-        alert('Please fill in all required fields');
+        
+        // Focus on first invalid field for better UX
+        if (firstInvalidField) {
+          firstInvalidField.focus();
+        }
       }
     });
     
-    // Remove error class on input
+    // Remove error class and message on input
     var inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(function(input) {
       input.addEventListener('input', function() {
         this.classList.remove('error');
+        
+        // Remove error message if it exists
+        var errorMsg = this.nextSibling;
+        if (errorMsg && errorMsg.classList && errorMsg.classList.contains('field-error-message')) {
+          errorMsg.remove();
+        }
       });
     });
   });
