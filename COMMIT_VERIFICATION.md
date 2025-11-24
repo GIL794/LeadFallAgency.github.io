@@ -36,6 +36,8 @@ This commit added **29 new image files** to the repository:
 
 ### Added Image Files (29 total):
 
+**Note:** Several files contain "Lead_Falll_Agency" with three 'l's in "Falll" - this is the actual filename from the original commit, not a typo.
+
 1. `assets/images/16.png`
 2. `assets/images/17_c49391c6-1f7c-4d53-9e49-02f77632a6f8.png`
 3. `assets/images/18.png`
